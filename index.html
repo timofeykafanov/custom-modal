@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom modal</title>
+  <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js"></script>
+</head>
+<body>
+  <h1>Custom modal</h1>
+  <script>
+    (async function() {
+      const sdk = await new AppExtensionsSDK().initialize();
+    })();
+
+    const { status } = await sdk.execute(Command.OPEN_MODAL, {
+      type: Modal.CUSTOM_MODAL,
+      action_id: 'd020daac-718c-4e59-aa42-5b9ce8ce1061',
+      data: {
+        item: 'xyz',
+      },
+    });
+
+    sdk.listen(Event.CLOSE_CUSTOM_MODAL, () => {
+      // handle event
+    });
+  </script>
+</body>
+</html>
