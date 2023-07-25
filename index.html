@@ -4,26 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom modal</title>
-  <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0.9.0/dist/index.umd.js"></script> -->
 </head>
 <body>
-  <h1>Custom modal</h1>
-  <script>
-    (async function() {
-      const sdk = await new AppExtensionsSDK().initialize();
-    })();
-
-    const { status } = await sdk.execute(Command.OPEN_MODAL, {
-      type: Modal.CUSTOM_MODAL,
-      action_id: 'd020daac-718c-4e59-aa42-5b9ce8ce1061',
-      data: {
-        item: 'xyz',
-      },
-    });
-
-    sdk.listen(Event.CLOSE_CUSTOM_MODAL, () => {
-      // handle event
-    });
-  </script>
+  <h1 class="heading">Custom modal</h1>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>
+
+<!-- authorization.html -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Pipedrive OAuth Authorization</title>
+</head>
+<body>
+  <h1>Pipedrive OAuth Authorization</h1>
+  <a href="https://oauth.pipedrive.com/oauth/authorize?client_id=128c0223b875250f&redirect_uri=https://timofeykafanov.github.io/react-custom-modal/&response_type=code&scope=read%20write">Authorize Pipedrive</a>
+</body>
+</html> -->
